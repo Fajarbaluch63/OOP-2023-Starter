@@ -21,7 +21,8 @@ public class DANI extends PApplet {
         colorMode(HSB);
         model = new ArrayList<Word>();
         random = new Random();
-        loadFile("shakespere.txt");
+        loadFile("small.txt");
+		printModel();
     }
 
     public void draw() {
@@ -65,10 +66,15 @@ public class DANI extends PApplet {
                 return word;
             }
         }
+		//if no match return null
         return null;
     }
 
-    
+	public void printModel() {
+        for (Word word : model) {
+            println(word.toString());
+        }
+    }
 
     public Follow findFollow(Word word, String str) {
         for (Follow follow : word.getFollows()) {
@@ -76,6 +82,7 @@ public class DANI extends PApplet {
                 return follow;
             }
         }
+		//if no match return null
         return null;
     }
 

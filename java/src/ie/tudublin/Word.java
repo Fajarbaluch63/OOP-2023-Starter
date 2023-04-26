@@ -21,11 +21,11 @@ public class Word {
   public void addFollow(String word) {
     for (Follow follow : follows) {
       if (follow.getWord().equals(word)) {
-        follow.count++;
+        follow.incrementCount();
         return;
       }
     }
-    follows.add(new Follow(word, 1));
+    follows.add(new Follow(word));
   }
 
   public String toString() {
